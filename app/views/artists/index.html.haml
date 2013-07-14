@@ -1,0 +1,9 @@
+%table#artists
+  - @artists.each do |artist|
+    %tr
+      %td
+        %span= artist.name
+      %td
+        %span= image_tag(artist.image)
+      %td
+        = link_to('Edit', edit_artist_path(artist), :class => 'button radius tiny') if is_admin?

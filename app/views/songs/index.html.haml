@@ -1,0 +1,14 @@
+%table#songs
+  - @songs.each do |song|
+    %tr
+      %td
+        %span= song.name
+      %td
+        %span= song.artist.try(:name) || 'Michael Jackson'
+      %td
+      %td
+        %span= song.album.try(:name) || 'Thriller'
+      %td
+        %span= image_tag(song.image)
+      %td
+        = link_to('Edit', edit_song_path(song), :class => 'button radius tiny') if is_admin?
